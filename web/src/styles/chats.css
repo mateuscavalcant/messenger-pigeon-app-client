@@ -1,0 +1,114 @@
+
+
+header {
+    display: flex;
+  }
+  
+
+#chats-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    /* margin-left: 190px; */
+    margin-top: 9%;
+}
+
+
+/* RESPONSIVIDADE */
+@media only screen and (max-width: 900px) {
+    .home-container {
+        margin-left: 0;
+    }
+
+    .bar-btn-container {
+        position: relative;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .vertical-bar {
+        padding: 20px;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .vertical-bar button {
+        padding: 5px;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .messages-page-header {
+        margin-left: 0;
+    }
+    #chats-container {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+ 
+    .post header {
+        flex-wrap: wrap;
+    }
+
+    .post .profile-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .post .post-links img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .post .user-details {
+        flex-wrap: wrap;
+    }
+
+    .post .user-name,
+    .post .user-username {
+        margin-right: 0;
+    }
+
+    .user-name p {
+        font-size: small;
+        margin: 0;
+        margin-left: 10px;
+    }
+
+
+    .vertical-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #fff; 
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+        z-index: 100; 
+      }
+      
+
+    .vertical-bar img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .create-post-container textarea {
+        font-size: 18px;
+    }
+
+    .create-post-container button {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import '../styles/useHomeMessages';
 import { usePosts } from '../hooks/usePosts';
 import { useNavigate } from 'react-router-dom';
-import VerticalNavBar from '../components/verticalNavBar';
+import VerticalNavBar from '../components/VerticalNavBar';
 import { useHomeChatMessages } from '../hooks/useHomeMessages';
+import '../styles/messages.css'
 
 
 
@@ -17,7 +17,7 @@ const Messages = () => {
 
     const handleMessage = (username) => {
         
-        axios.post(`http://localhost:8080/chat/${username}`, {}, {
+        axios.post(`http://localhost:8081/chat/${username}`, {}, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(() => navigate(`/chat/${username}`))

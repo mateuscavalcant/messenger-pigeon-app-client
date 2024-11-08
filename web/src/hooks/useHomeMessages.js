@@ -11,7 +11,7 @@ export const useHomeChatMessages = () => {
 
   const loadChats = useCallback(async () => {
     try {
-      const response = await axios.post(`http://localhost:8080/chats`, {}, {
+      const response = await axios.post(`http://localhost:8081/messages`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -25,7 +25,7 @@ export const useHomeChatMessages = () => {
 
   const setupWebSocket = useCallback(() => {
     if (!token) return;
-    const wsURL = `ws://localhost:8080/websokcet/chats`;
+    const wsURL = `ws://localhost:8081/websokcet/messages`;
     const ws = new WebSocket(wsURL);
 
     ws.onopen = () => console.log('WebSocket connection established.');
