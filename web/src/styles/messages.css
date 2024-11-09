@@ -65,7 +65,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     padding: 10px;
     width: 578.5px;
     height: 33px;

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { usePosts } from '../hooks/usePosts';
 import { useNavigate } from 'react-router-dom';
-import VerticalNavBar from '../components/VerticalNavBar';
 import { useHomeChatMessages } from '../hooks/useHomeMessages';
 import '../styles/messages.css'
 
@@ -30,9 +29,6 @@ const Messages = () => {
 
     return (
         <div className="home-page">
-            <div className="bar-btn-container">
-                <VerticalNavBar userInfos={userInfos} />
-            </div>
             <div className="home-container">
                 <div className="home-page-header">
                     <header>
