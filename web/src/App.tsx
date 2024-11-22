@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import "./App.css";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import HomeMessages from "./pages/HomeMessages";
 
 const App: React.FC = () => {
   return (
@@ -12,7 +13,8 @@ const App: React.FC = () => {
           {/* Redireciona de "/" para "/chats" */}
           <Route path="/" element={<Navigate to="/chats" />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<HomeMessages />} />
         </Routes>
       </div>
     </Router>

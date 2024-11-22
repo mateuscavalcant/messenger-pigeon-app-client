@@ -1,0 +1,13 @@
+import React from "react";
+import HomeMessagesView from "../components/home/HomeMessagesView";
+
+const HomeMessages: React.FC = () => {
+  return (
+    <div>
+      <h1>Messages</h1>
+      <HomeMessages />
+    </div>
+  );
+};
+
+export default HomeMessages;
