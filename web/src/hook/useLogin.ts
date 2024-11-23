@@ -27,12 +27,6 @@ export const useLogin = (): UseLoginReturn => {
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      navigate('/chats');
-    }
-  }, [navigate]);
 
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
@@ -62,7 +56,7 @@ export const useLogin = (): UseLoginReturn => {
         setError(data.error.credentials || data.error.password || 'An error occurred');
       } else if (data.token) {
         localStorage.setItem('token', data.token);
-        navigate('/chats');
+        window.location.replace("/chats");
       }
     } catch (error) {
       setError('Something went wrong. Please try again.');

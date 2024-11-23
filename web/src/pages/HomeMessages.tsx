@@ -5,7 +5,7 @@ const HomeMessages: React.FC = () => {
   return (
     <div>
       <h1>Messages</h1>
-      <HomeMessages />
+      <HomeMessagesView />
     </div>
   );
 };

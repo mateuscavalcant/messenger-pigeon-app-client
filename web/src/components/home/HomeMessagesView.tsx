@@ -7,21 +7,7 @@ const HomeMessagesView: React.FC = () => {
     chats,
     userInfosMessages,
   } = useHomeChatMessages();
-
-  const token = localStorage.getItem('token');
-  const navigate = useNavigate();
-
-  // Função para lidar com o clique em uma mensagem
-  const handleMessage = (username: string) => {
-    axios.post(`http://localhost:8081/chat/${username}`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-    })
-        .then(() => navigate(`/chat/${username}`))
-        .catch(error => {
-            console.error("Failed to start chat:", error.response ? error.response.data : error.message);
-        });
-
-  };
+  
 
   return (
     <div className="home-page">
@@ -36,7 +22,6 @@ const HomeMessagesView: React.FC = () => {
             <div
               className="post"
               key={post.postID}
-              onClick={() => handleMessage(post.createdby)}
               style={{ cursor: "pointer" }}
             >
               <header>
@@ -45,7 +30,6 @@ const HomeMessagesView: React.FC = () => {
                     src={`data:image/jpeg;base64,${post.iconbase64}`}
                     alt="Profile"
                     className="profile-icon"
-                    onClick={() => handleMessage(post.createdby)}
                     style={{ cursor: "pointer" }}
                   />
                 ) : (
@@ -53,14 +37,12 @@ const HomeMessagesView: React.FC = () => {
                     src="default-profile-icon.png"
                     alt="Profile"
                     className="profile-icon"
-                    onClick={() => handleMessage(post.createdby)}
                     style={{ cursor: "pointer" }}
                   />
                 )}
                 <div className="post-title">
                   <div
                     className="user-name"
-                    onClick={() => handleMessage(post.createdby)}
                     style={{ cursor: "pointer" }}
                   >
                     <p>{post.createdby}</p>

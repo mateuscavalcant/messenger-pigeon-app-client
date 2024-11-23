@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
+
 // Tipagem para os dados das mensagens e do usuário
 interface UserInfo {
   name: string;
@@ -27,7 +28,7 @@ export const useHomeChatMessages = () => {
   // Função para carregar os chats
   const loadChats = useCallback(async () => {
     try {
-      const response = await axios.post<{ chats: Chat[] }>(`http://localhost:8081/messages`, {}, {
+      const response = await axios.post<{ chats: Chat[] }>(`http://localhost:8080/chats`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -36,15 +37,18 @@ export const useHomeChatMessages = () => {
     } catch (error) {
       console.error('Failed to load messages:', error);
     }
+    
   }, [token]);
 
   // Função para configurar o WebSocket
   const setupWebSocket = useCallback(() => {
     if (!token) return;
-    const wsURL = `ws://localhost:8081/websocket/messages`;
+    const wsURL = `ws://localhost:8080/websocket/chats`;
     const ws = new WebSocket(wsURL);
 
     ws.onopen = () => console.log('WebSocket connection established.');
+
+    document.cookie = `token=${token}; path=/; Secure; SameSite=Strict`;
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);

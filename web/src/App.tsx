@@ -11,10 +11,10 @@ const App: React.FC = () => {
       <div className="App">
         <Routes>
           {/* Redireciona de "/" para "/chats" */}
-          <Route path="/" element={<Navigate to="/chats" />} />
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<HomeMessages />} />
+          <Route path="/chats" element={<HomeMessages />} />
         </Routes>
       </div>
     </Router>
