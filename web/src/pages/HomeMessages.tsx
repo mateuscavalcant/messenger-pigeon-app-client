@@ -1,3 +1,4 @@
+// src/pages/HomeMessages.tsx
 import React from "react";
 import HomeMessagesView from "../components/home/HomeMessagesView";
 

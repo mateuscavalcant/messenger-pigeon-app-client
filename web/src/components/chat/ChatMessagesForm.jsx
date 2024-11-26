@@ -1,4 +1,4 @@
-// src/components/MessageForm.js
+// src/components/chat/ChatMessageForm.tsx
 import React from 'react';
 
 const ChatMessageForm = ({ content, setContent, handleCreateMessage }) => {

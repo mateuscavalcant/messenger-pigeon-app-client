@@ -1,6 +1,9 @@
+// src/hook/useSignup.ts
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+// Tipo para resposta da API
 interface SignupResponse {
   message?: string;
   error?: {
@@ -12,6 +15,7 @@ interface SignupResponse {
   };
 }
 
+// Tipo para propriedades do Signup
 interface UseSignupReturn {
   name: string;
   username: string;

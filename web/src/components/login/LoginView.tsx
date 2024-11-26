@@ -1,4 +1,6 @@
+// src/components/login/LoginView.tsx
 import React from 'react';
+
 
 interface LoginViewProps {
   email: string;

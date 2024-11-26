@@ -1,3 +1,4 @@
+// src/components/home/HomeMessageView.tsx
 import React from "react";
 import { useHomeChatMessages } from "../../hook/useHomeMessages";
 import { useNavigate } from "react-router-dom";

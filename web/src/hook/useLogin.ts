@@ -1,3 +1,4 @@
+// src/hook/useLogin.ts
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ interface LoginResponse {
   };
 }
 
-// Tipo para propriedades da lógica do Login
+// Tipo para propriedades do Login
 interface UseLoginReturn {
   email: string;
   password: string;

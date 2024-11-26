@@ -1,8 +1,8 @@
+// src/hook/useHomeMessages.ts
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 
-// Tipagem para os dados das mensagens e do usuário
 interface UserInfo {
   name: string;
   iconBase64: string;
@@ -20,7 +20,7 @@ interface Chat {
 }
 
 export const useHomeChatMessages = () => {
-  const [chats, setChats] = useState<Chat[]>([]); // Definindo tipo de estado como array de Chat
+  const [chats, setChats] = useState<Chat[]>([]); 
   const [content, setContent] = useState<string>(''); 
   const [userInfosMessages, setUserInfosMessages] = useState<UserInfo>({ name: '', iconBase64: '', username: '' }); // Tipagem para o estado do usuário
   const token = localStorage.getItem('token');

@@ -1,3 +1,4 @@
+// src/components/signup/SignupView.tsx
 import React from 'react';
 
 interface SignupViewProps {
