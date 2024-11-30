@@ -1,0 +1,123 @@
+h2 {
+    color: #ffffff;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111827;
+}
+
+.form {
+    justify-content: center;
+    position: fixed;
+    margin-left: -30px;
+    max-width: 270px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    background: #161E2D;
+    text-align: center;
+    border: 1px solid #1F2735;
+}
+
+header {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.field input,
+.field button {
+    color: #ffffff;
+    background-color: #141B2A;
+    height: 60%;
+    width: 95%;
+    border: none;
+    font-size: 16px;
+    font-weight: 20;
+    border-radius: 7px;
+    padding: -2px -5px;
+    outline: none;
+    border: 1px solid #1F2735;
+}
+
+.field input::placeholder {
+    border-left: -5px;
+    color: #ffffff;
+}
+
+.field input:focus {
+    border-bottom-width: 2px;
+}
+
+.error {
+    display: block;
+    margin-top: 10px;
+    color: #d93025;
+    font-size: 14px;
+}
+
+.button {
+    color: #fff;
+    background-color: #27303F;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 8px 115px;
+    margin-top: 20px;
+    border: 1px solid #1F2735;
+}
+
+.button:hover {
+    background-color: #464646;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-link a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.form-link p {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+.form-link a:hover {
+    text-decoration: underline;
+}
+
+
+.form #edit-profile-icon {
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    margin-left: 75px;
+}
+
+input #icon.icon {
+    justify-content: center;
+    position: fixed;
+    margin-left: -30px;
+    max-width: 270px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    background: #ffffff;
+    text-align: center;
+}

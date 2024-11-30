@@ -1,6 +1,7 @@
 // src/hook/useLogin.ts
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css'
 
 // Tipo para resposta da API
 interface LoginResponse {
