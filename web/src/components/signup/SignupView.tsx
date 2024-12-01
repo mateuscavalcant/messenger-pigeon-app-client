@@ -35,10 +35,10 @@ const SignupView: React.FC<SignupViewProps> = ({
 
     return (
         <div className="container">
-            <div className="form">
+            <div className="form-signup">
                 <h2>Sign Up</h2>
                 <form onSubmit={handleSubmit}>
-                    <div>
+                <div className="field">
                         <input
                             type="text"
                             placeholder="Name"
@@ -46,7 +46,7 @@ const SignupView: React.FC<SignupViewProps> = ({
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className="field">
                         <input
                             type="text"
                             placeholder="Username"
@@ -54,7 +54,7 @@ const SignupView: React.FC<SignupViewProps> = ({
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className="field">
                         <input
                             type="email"
                             placeholder="Email"
@@ -62,7 +62,7 @@ const SignupView: React.FC<SignupViewProps> = ({
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className="field">
                         <input
                             type="password"
                             placeholder="Password"
@@ -70,7 +70,7 @@ const SignupView: React.FC<SignupViewProps> = ({
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className="field">
                         <input
                             type="password"
                             placeholder="Confirm Password"

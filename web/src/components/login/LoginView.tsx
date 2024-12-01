@@ -21,7 +21,7 @@ const LoginView: React.FC<LoginViewProps> = ({
 }) => {
   return (
     <div className="container">
-      <div className="form">
+      <div className="form-login">
         <h2 className="header">Sign In</h2>
         <form onSubmit={handleSubmit}>
           <div className="field">
