@@ -79,7 +79,7 @@ const SignupView: React.FC<SignupViewProps> = ({
                         />
                     </div>
                     {error && <p style={{ color: "red" }}>{error}</p>}
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" className='button-signup'>Sign Up</button>
                 </form>
             </div>
         </div>
