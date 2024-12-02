@@ -21,7 +21,7 @@ const HomeMessagesView: React.FC = () => {
         <div id="chats-container">
           {chats.map((post) => (
             <div
-              className="post"
+              className="chats"
               key={post.postID}
               style={{ cursor: "pointer" }}
             >
@@ -30,20 +30,20 @@ const HomeMessagesView: React.FC = () => {
                   <img
                     src={`data:image/jpeg;base64,${post.iconbase64}`}
                     alt="Profile"
-                    className="profile-icon"
+                    className="chats-icon"
                     style={{ cursor: "pointer" }}
                   />
                 ) : (
                   <img
                     src="default-profile-icon.png"
                     alt="Profile"
-                    className="profile-icon"
+                    className="chats-icon"
                     style={{ cursor: "pointer" }}
                   />
                 )}
-                <div className="post-title">
+                <div className="chats-title">
                   <div
-                    className="user-name"
+                    className="chats-name"
                     style={{ cursor: "pointer" }}
                   >
                     <p>{post.createdby}</p>
@@ -51,7 +51,7 @@ const HomeMessagesView: React.FC = () => {
                 </div>
               </header>
               <main>
-                <div className="post-content">
+                <div className="chats-content">
                   <p>{post.content}</p>
                 </div>
               </main>

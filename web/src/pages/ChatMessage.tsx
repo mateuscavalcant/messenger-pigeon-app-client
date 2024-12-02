@@ -5,6 +5,7 @@ import { useChatMessages } from '../hook/useChatMessages';
 
 import ChatMessagesViews from '../components/chat/ChatMessagesView';
 import ChatMessageForm from '../components/chat/ChatMessagesForm';
+import '../styles/ChatMessages.css'
 
 const ChatMessages: React.FC = () => {
   const { username } = useParams<{ username: string }>(); 
