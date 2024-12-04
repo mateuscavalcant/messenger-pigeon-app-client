@@ -73,6 +73,7 @@ export const useHomeChatMessages = () => {
     chats,
     content,
     setContent,
-    userInfosMessages
+    userInfosMessages,
+    token,
   };
 };

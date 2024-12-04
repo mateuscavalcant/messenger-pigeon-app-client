@@ -2,13 +2,27 @@
 import React from "react";
 import { useHomeChatMessages } from "../../hook/useHomeMessages";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const HomeMessagesView: React.FC = () => {
-  const {
-    chats,
-    userInfosMessages,
-  } = useHomeChatMessages();
-  
+  const { token, chats } = useHomeChatMessages();
+  const navigate = useNavigate();
+
+  const handleMessage = (username: string) => {
+    axios
+      .post(
+        `http://localhost:8080/chat/${username}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then(() => navigate(`/chats/${username}`))
+      .catch((error) => {
+        console.error(
+          "Failed to start chat:",
+          error.response ? error.response.data : error.message
+        );
+      });
+  };
 
   return (
     <div className="home-page">
@@ -24,6 +38,7 @@ const HomeMessagesView: React.FC = () => {
               className="chats"
               key={post.postID}
               style={{ cursor: "pointer" }}
+              onClick={() => handleMessage(post.createdby)}
             >
               <header>
                 {post.iconbase64 ? (
@@ -42,10 +57,7 @@ const HomeMessagesView: React.FC = () => {
                   />
                 )}
                 <div className="chats-title">
-                  <div
-                    className="chats-name"
-                    style={{ cursor: "pointer" }}
-                  >
+                  <div className="chats-name" style={{ cursor: "pointer" }}>
                     <p>{post.createdby}</p>
                   </div>
                 </div>

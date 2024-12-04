@@ -9,6 +9,15 @@ header {
   
 .home-page {
     background: #111827;
+    margin-left: -190px;
+}
+.chat-page h1{
+    margin-top: 200px;
+    color: #ffffff;
+    margin-right: -700px;
+    display: block;
+    margin-bottom: -238px;
+
 }
 
 #chats-container {

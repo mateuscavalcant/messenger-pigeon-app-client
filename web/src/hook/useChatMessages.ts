@@ -18,7 +18,6 @@ interface UserInfo {
 export const useChatMessages = (username: string) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [content, setContent] = useState<string>('');
-  const [autoScroll, setAutoScroll] = useState<boolean>(true);
   const [userInfos, setUserInfos] = useState<UserInfo>({ name: '', iconBase64: '', username: '' });
   const token = localStorage.getItem('token') || '';
   const cookie = document.cookie = `token=${token}; path=/; Secure; SameSite=Strict`;
@@ -32,13 +31,10 @@ export const useChatMessages = (username: string) => {
       });
       setMessages(response.data.messages || []);
 
-      if (autoScroll) {
-        window.scrollTo(0, document.body.scrollHeight);
-      }
     } catch (error) {
       console.error('Failed to load messages:', error);
     }
-  }, [username, token, autoScroll]);
+  }, [username, token]);
 
   const setupWebSocket = useCallback(() => {
     if (!cookie) return;
@@ -64,16 +60,6 @@ export const useChatMessages = (username: string) => {
     loadMessages();
     setupWebSocket();
 
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const scrollHeight = document.body.scrollHeight;
-      const windowHeight = window.innerHeight;
-
-      setAutoScroll(scrollTop + windowHeight >= scrollHeight - 5);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [loadMessages, setupWebSocket]);
 
   const handleCreateMessage = async (event: React.FormEvent) => {
