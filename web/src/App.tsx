@@ -4,7 +4,7 @@ import "./App.css";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import HomeMessages from "./pages/HomeMessages";
-import ChatMessages from "./pages/ChatMessage";
+import ChatMessages from "./pages/ChatMessages";
 
 const App: React.FC = () => {
   return (

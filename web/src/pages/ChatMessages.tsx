@@ -1,7 +1,7 @@
+// src/pages/ChatMessages.tsx
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useChatMessages } from "../hook/useChatMessages";
-import HomeMessagesView from "../components/home/HomeMessagesView";
 import ChatMessagesViews from "../components/chat/ChatMessagesView";
 import ChatMessageForm from "../components/chat/ChatMessagesForm";
 import "../styles/ChatMessages.css";
@@ -30,8 +30,36 @@ const ChatMessages: React.FC = () => {
         {selectedChat ? (
           <>
             <div className="chat-header">
-              {/* Conteúdo do cabeçalho */}
+        <header>
+        <div className="header-back">
+              <img
+              src="/images/arrow-back.png"
+              alt='back'
+                onClick={() => window.location.replace(`/chats`)}
+                style={{ cursor: 'pointer' }}
+              >
+                
+              </img>
             </div>
+          <div className="header-home-screen">
+            {userInfos.iconBase64 && (
+              <img
+                src={`data:image/jpeg;base64,${userInfos.iconBase64}`}
+                className="profile-icon"
+                alt="profile"
+                style={{ cursor: 'pointer' }}
+              />
+            )}
+            <div className="header-name">
+              <p
+                style={{ cursor: 'pointer' }}
+              >
+                {userInfos.name}
+              </p>
+            </div>
+          </div>
+        </header>
+      </div>
             <div className="messages-container" id="messages-container">
               {messages.map((post) => (
                 <ChatMessagesViews key={post.postid} post={post} />
