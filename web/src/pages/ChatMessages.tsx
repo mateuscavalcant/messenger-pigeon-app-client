@@ -5,6 +5,7 @@ import { useChatMessages } from "../hook/useChatMessages";
 import ChatMessagesViews from "../components/chat/ChatMessagesView";
 import ChatMessageForm from "../components/chat/ChatMessagesForm";
 import "../styles/ChatMessages.css";
+import ChatMessagesHeader from "../components/chat/ChatMessagesHeader";
 
 const ChatMessages: React.FC = () => {
   const { username } = useParams<{ username: string }>();
@@ -30,35 +31,8 @@ const ChatMessages: React.FC = () => {
         {selectedChat ? (
           <>
             <div className="chat-header">
-        <header>
-        <div className="header-back">
-              <img
-              src="/images/arrow-back.png"
-              alt='back'
-                onClick={() => window.location.replace(`/chats`)}
-                style={{ cursor: 'pointer' }}
-              >
-                
-              </img>
-            </div>
-          <div className="header-home-screen">
-            {userInfos.iconBase64 && (
-              <img
-                src={`data:image/jpeg;base64,${userInfos.iconBase64}`}
-                className="profile-icon"
-                alt="profile"
-                style={{ cursor: 'pointer' }}
-              />
-            )}
-            <div className="header-name">
-              <p
-                style={{ cursor: 'pointer' }}
-              >
-                {userInfos.name}
-              </p>
-            </div>
-          </div>
-        </header>
+              <ChatMessagesHeader userInfos={userInfos}/>
+        
       </div>
             <div className="messages-container" id="messages-container">
               {messages.map((post) => (

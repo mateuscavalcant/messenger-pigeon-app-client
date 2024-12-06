@@ -9,7 +9,7 @@ interface Message {
   hourminute: string;
 }
 
-interface UserInfo {
+interface UserInfos {
   name: string;
   iconBase64: string;
   username: string;
@@ -18,18 +18,19 @@ interface UserInfo {
 export const useChatMessages = (username: string) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [content, setContent] = useState<string>('');
-  const [userInfos, setUserInfos] = useState<UserInfo>({ name: '', iconBase64: '', username: '' });
+  const [userInfos, setUserInfos] = useState<UserInfos>({ name: '', iconBase64: '', username: '' });
   const token = localStorage.getItem('token') || '';
   const cookie = document.cookie = `token=${token}; path=/; Secure; SameSite=Strict`;
 
   const loadMessages = useCallback(async () => {
     try {
-      const response = await axios.post<{messages: Message[] }>(`http://localhost:8080/chat/${username}`, {}, {
+      const response = await axios.post<{messages: Message[], userInfos: UserInfos }>(`http://localhost:8080/chat/${username}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setMessages(response.data.messages || []);
+      setUserInfos(response.data.userInfos || { name: '', iconBase64: '', username: '' });
 
     } catch (error) {
       console.error('Failed to load messages:', error);

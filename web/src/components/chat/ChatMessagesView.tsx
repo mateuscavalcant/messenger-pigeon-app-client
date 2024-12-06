@@ -1,4 +1,4 @@
-// src/components/chat/ChatMessageView.tsx
+// src/components/chat/ChatMessagesView.tsx
 import React from 'react';
 
 interface MessageProps {
