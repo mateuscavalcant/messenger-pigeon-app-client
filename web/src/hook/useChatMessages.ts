@@ -24,7 +24,7 @@ export const useChatMessages = (username: string) => {
 
   const loadMessages = useCallback(async () => {
     try {
-      const response = await axios.post<{messages: Message[], userInfos: UserInfos }>(`http://localhost:8080/chat/${username}`, {}, {
+      const response = await axios.post<{messages: Message[], userInfos: UserInfos }>(`http://localhost:8081/chat/${username}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,7 +39,7 @@ export const useChatMessages = (username: string) => {
 
   const setupWebSocket = useCallback(() => {
     if (!cookie) return;
-    const wsURL = `ws://localhost:8080/websocket/${username}`;
+    const wsURL = `ws://localhost:8081/websocket/chat/${username}`;
     const ws = new WebSocket(wsURL);
 
     ws.onopen = () => console.log('WebSocket connection established.');
@@ -66,7 +66,7 @@ export const useChatMessages = (username: string) => {
   const handleCreateMessage = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/create-message/${username}`, { content }, {
+      await axios.post(`http://localhost:8081/create-message/${username}`, { content }, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/x-www-form-urlencoded',

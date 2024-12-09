@@ -24,11 +24,12 @@ export const useHomeChatMessages = () => {
   const [content, setContent] = useState<string>(''); 
   const [userInfosMessages, setUserInfosMessages] = useState<UserInfo>({ name: '', iconBase64: '', username: '' }); // Tipagem para o estado do usuário
   const token = localStorage.getItem('token');
+  const cookie = document.cookie = `token=${token}; path=/; Secure; SameSite=Strict`;
 
   // Função para carregar os chats
   const loadChats = useCallback(async () => {
     try {
-      const response = await axios.post<{ chats: Chat[] }>(`http://localhost:8080/chats`, {}, {
+      const response = await axios.post<{ chats: Chat[] }>(`http://localhost:8081/messages`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -42,8 +43,8 @@ export const useHomeChatMessages = () => {
 
   // Função para configurar o WebSocket
   const setupWebSocket = useCallback(() => {
-    if (!token) return;
-    const wsURL = `ws://localhost:8080/websocket/chats`;
+    if (!cookie) return;
+    const wsURL = `ws://localhost:8081/websocket/messages`;
     const ws = new WebSocket(wsURL);
 
     ws.onopen = () => console.log('WebSocket connection established.');
