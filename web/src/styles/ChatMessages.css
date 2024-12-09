@@ -36,8 +36,7 @@ body {
   .header-back img {
     width: 25px;
     height: 25px;
-    
-  
+    margin-top: 10px;
   }
   
   .header-home-screen .profile-icon {
